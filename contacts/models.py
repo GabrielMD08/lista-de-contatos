@@ -1,3 +1,15 @@
 from django.db import models
+from django.core.validators import RegexValidator
 
-# Create your models here.
+class Contact(models.Model):
+    first_name = models.CharField('Nome', max_length=30)
+    last_name = models.CharField('Sobrenome', max_length=60, null=True)
+    nick_name = models.CharField('Apelido', max_length=30, null=True)
+
+    phone_validator = RegexValidator(
+            regex= r'^\+55\d{10,11}',
+            message= 'Numero invalido! Use o Formato +55 (XX) 9XXXX-XXXX'
+            )
+
+    phone_number = models.CharField('Numero de telefone', max_length=14, validators=[phone_validator])
+    email = models.EmailField('Email', null= True)
