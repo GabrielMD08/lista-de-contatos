@@ -1,11 +1,10 @@
 from django import forms
-from .models import Contact
-
+from . import models
 
 class ContactForm(forms.ModelForm):
     
     class meta:
-        model = Contact
+        model = models.Contact
         fields = '__all__'
 
         labels = {
@@ -15,4 +14,3 @@ class ContactForm(forms.ModelForm):
             'phone_number' : 'Numero do celular/telefone',
             'email' : 'Email'
         }
-        
