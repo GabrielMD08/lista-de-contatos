@@ -2,9 +2,6 @@ from django.shortcuts import render
 from django.urls import reverse
 from . import forms
 
-def index(request):
-    return reverse('index')
-
 def new_contact(request):
     
     if request.method == 'POST':
