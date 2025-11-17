@@ -11,5 +11,14 @@ class Contact(models.Model):
             message= 'Numero invalido! Use o Formato +55 (XX) 9XXXX-XXXX'
             )
 
-    phone_number = models.CharField('Numero de telefone', max_length=14, validators=[phone_validator])
+    phone_number = models.CharField('Numero de telefone', max_length=14, validators=[phone_validator], unique=True)
     email = models.EmailField('Email', null= True)
+
+    def __str__(self):
+        return f'{self.first_name}'
+    
+    def show_full_name(self):
+        return f'{self.first_name + self.last_name}'
+    
+    def show_nick_name(self):
+        return f'{self.nick_name}'

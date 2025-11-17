@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.urls import reverse
-from . import forms
 
 def index(request):
 
@@ -8,4 +7,4 @@ def index(request):
         'titulo': 'Bem-vindo!'
     }
 
-    return render(request, 'templates/index.html', context)
+    return render(request, 'index.html', context)

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse
 from . import forms
 
@@ -11,9 +11,9 @@ def new_contact(request):
         if form.is_valid():
             form.save()
 
-            return reverse('index')
+            return redirect('index')
     
     else :
         form = forms.ContactForm()
     
-    return render(request, 'templates/new_contact', {'form': form})
+    return render(request, 'new_contact.html', {'form': form})

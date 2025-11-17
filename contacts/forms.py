@@ -3,7 +3,7 @@ from . import models
 
 class ContactForm(forms.ModelForm):
     
-    class meta:
+    class Meta:
         model = models.Contact
         fields = '__all__'
 
@@ -11,6 +11,6 @@ class ContactForm(forms.ModelForm):
             'first_name': 'Nome',
             'last_name' : 'Sobrenome',
             'nick_name' : 'Apelido',
-            'phone_number' : 'Numero do celular/telefone',
+            'phone_number' : 'Celular/Telefone',
             'email' : 'Email'
         }
