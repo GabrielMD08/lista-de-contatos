@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div>
+    <h1>
+        {{ titulo }}
+    </h1>
+
+    <span>
+        <a href="{% url 'contacts:new_contact' %}">Novo Contato</a>
+    </span>
+</div>
+{% endblock content %}
