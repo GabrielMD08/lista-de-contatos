@@ -7,8 +7,13 @@
         {{ titulo }}
     </h1>
 
-    <span>
-        <a href="{% url 'contacts:new_contact' %}">Novo Contato</a>
-    </span>
+    <ul>
+        <li>
+            <span><a href="{% url 'contacts:new_contact' %}">Novo Contato</a></span>
+        </li>
+        <li>
+            <span><a href="{% url 'contacts:contacts_list' %}">Lista de contatos</a></span>
+        </li>
+    </ul>
 </div>
 {% endblock content %}

@@ -4,7 +4,7 @@ from django.urls import reverse
 def index(request):
 
     context = {
-        'titulo': 'Bem-vindo!'
+        'title': 'Bem-vindo!'
     }
 
     return render(request, 'index.html', context)

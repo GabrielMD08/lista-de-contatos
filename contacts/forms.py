@@ -7,6 +7,8 @@ class ContactForm(forms.ModelForm):
         model = models.Contact
         fields = '__all__'
 
+        
+
         labels = {
             'first_name': 'Nome',
             'last_name' : 'Sobrenome',

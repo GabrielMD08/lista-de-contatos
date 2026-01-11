@@ -3,12 +3,15 @@
 
 {% block content %}
 <div>
+    <div>
+        <a href="{% url 'index' %}">Inicio</a>
+    </div>
+
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
 
         <button type="submit">Enviar</button>
-        
     </form>
 </div>
 

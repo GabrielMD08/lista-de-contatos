@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div>
+    <h1>
+        {{ titulo }}
+    </h1>
+
+    <div>
+        <a href="{% url 'index' %}">Inicio</a>
+    </div>
+    
+    {% if contact_list %}
+    <ul>
+        {% for contact in contact_list %}
+        <li>
+            <div>
+                <strong>Nome:</strong> {{ contact.show_full_name }}
+            </div>
+            <div>
+                <strong>Numero:</strong> {{ contact.phone_number }}
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <span>Não há contatos registrados.</span>
+    {% endif %}
+
+</div>
+{% endblock content %}
