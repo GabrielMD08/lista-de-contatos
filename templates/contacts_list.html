@@ -21,6 +21,10 @@
             <div>
                 <strong>Numero:</strong> {{ contact.phone_number }}
             </div>
+            <div>
+                <a href="{% url 'contacts:update_contact' contact.pk %}"><span>Editar</span></a>
+                <a href=""><span>Deletar</span></a>
+            </div>
         </li>
         {% endfor %}
     </ul>
