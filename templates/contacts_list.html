@@ -4,7 +4,7 @@
 {% block content %}
 <div>
     <h1>
-        {{ titulo }}
+        {{ title }}
     </h1>
 
     <div>
@@ -23,7 +23,12 @@
             </div>
             <div>
                 <a href="{% url 'contacts:update_contact' contact.pk %}"><span>Editar</span></a>
-                <a href=""><span>Deletar</span></a>
+                <form action="{% url 'contacts:delete_contact' contact.id %}" method="POST" style="display:inline;" onsubmit="return confirm('Tem certeza que deseja deletar o contato {{ contact.id.name }}?');">
+                {% csrf_token %}
+                <button type="submit" style="color: red; background: none; border: none; cursor: pointer;">
+                    Deletar
+                </button>
+                </form>
             </div>
         </li>
         {% endfor %}

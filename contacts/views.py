@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponseNotAllowed
+from django.contrib import messages
 from django.urls import reverse
 from . import forms, models
 
 def new_contact(request):
-    
     if request.method == 'POST':
         form = forms.ContactForm(request.POST)
         if form.is_valid():
@@ -34,3 +35,13 @@ def update_contact(request, pk):
         form = forms.ContactForm(instance=contact)
 
     return render(request, 'new_contact.html', {'form': form, 'contact': contact})
+
+
+def detele_contact(request, pk):
+    contact = get_object_or_404(models.Contact, id=pk)
+    if request.method == "POST":
+        return HttpResponseNotAllowed(['POST'])
+        
+    contact.delete()
+    messages.success(request, f"Contato {contact.name} excluído com sucesso!")
+    return redirect('contacts_list')
