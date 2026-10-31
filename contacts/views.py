@@ -40,8 +40,8 @@ def update_contact(request, pk):
 def detele_contact(request, pk):
     contact = get_object_or_404(models.Contact, id=pk)
     if request.method == "POST":
-        return HttpResponseNotAllowed(['POST'])
+        contact.delete()
+        messages.success(request, f"Contato excluído com sucesso!")
+        return redirect('contacts:contacts_list')
         
-    contact.delete()
-    messages.success(request, f"Contato {contact.name} excluído com sucesso!")
-    return redirect('contacts_list')
+    return redirect('contacts:contacts_list')
